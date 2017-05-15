@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>icons/back.png</file>
+        <file>icons/back-pressed.png</file>
+    </qresource>
+    <qresource prefix="/pages">
+        <file>Page.qml</file>
+        <file>Home.qml</file>
+    </qresource>
+    <qresource prefix="/global">
+        <file>qmldir</file>
+        <file>Properties.qml</file>
+        <file>Theme.qml</file>
+    </qresource>
+    <qresource prefix="/components">
+        <file>PageStackView.qml</file>
+        <file>HeaderBar.qml</file>
+        <file>IconButton.qml</file>
+    </qresource>
+</RCC>
