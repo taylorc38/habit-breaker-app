@@ -4,6 +4,7 @@ import "qrc:/global"
 Item {
     id: root
 
+    property string currentPage
     property var pageIconTable: {
         "Home" : {
             "left" : [Properties.buttonModels.back],
@@ -12,6 +13,10 @@ Item {
     }
 
     signal iconClicked(string id)
+
+    onCurrentPageChanged: {
+        refreshModels(currentPage)
+    }
 
     onIconClicked: {
         console.log(":: HeaderBar :: Icon clicked: " + id)
@@ -36,11 +41,11 @@ Item {
         listModelLeft.clear()
         listModelRight.clear()
 
-        for (var i in tableObj.left) {
+        for (var i = 0; i < tableObj.left.length; i++) {
             listModelLeft.append(tableObj.left[i])
         }
-        for (var i in tableObj.right) {
-            listModelRight.append(tableObj.right[i])
+        for (var k = 0; k < tableObj.right.length; k++) {
+            listModelRight.append(tableObj.right[k])
         }
     }
 
@@ -68,7 +73,7 @@ Item {
         model: listModelLeft
         delegate: IconButton {
             width: height
-            height: root.height * .80
+            height: root.height * .60
             anchors.verticalCenter: parent.verticalCenter
             iconSource: model.iconSource
             pressedSource: model.pressedSource

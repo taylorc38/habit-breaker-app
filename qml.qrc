@@ -12,13 +12,12 @@
         <file>qmldir</file>
         <file>Properties.qml</file>
         <file>Theme.qml</file>
+        <file>SqlQueries.qml</file>
     </qresource>
     <qresource prefix="/components">
         <file>PageStackView.qml</file>
         <file>HeaderBar.qml</file>
         <file>IconButton.qml</file>
-        <file>SqlModel.qml</file>
-        <file>SqlListModel.qml</file>
     </qresource>
     <qresource prefix="/config">
         <file>Config.js</file>

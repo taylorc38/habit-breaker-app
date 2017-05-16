@@ -4,17 +4,21 @@ import QtQuick 2.0
 Item {
     id: root
 
-    property alias userSettings: _userSettings
+    property alias settings: _settings
     property alias paths: _paths
     property alias dimens: _dimensions
+
+    property bool prod: false
+    property bool setupRequired: false
 
     property var buttonModels: {
         "back" : { "id" : "back", "iconSource" : paths.iconPath + "back.png", "pressedSource" : paths.iconPath + "back-pressed.png" }
     }
 
     QtObject {
-        id: _userSettings
+        id: _settings
 
+        property int user_id
         property string userName
         property string skin
     }

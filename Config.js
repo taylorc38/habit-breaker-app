@@ -15,12 +15,13 @@ var init = {
 var settings = {
     "table_name" : "Settings",
     "schema" : [
-        { "attr" : "id", "_type" : "integer primary key autoincrement" },
+        { "attr" : "user_id", "_type" : "integer" },
         { "attr" : "name", "_type" : "TEXT" },
         { "attr" : "skin", "_type" : "TEXT" } // etc
     ],
     "defaults" : {
-        "name" : "Erica",
+        "user_id" : 1337,
+        "name" : "Taylor",
         "skin" : "default"
     }
 }

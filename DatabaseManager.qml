@@ -18,20 +18,12 @@ Item {
         "Uninitialized" : 2
     })
     property int initState: initStates.Unknown
-    property bool reinitialize: true // Should ALWAYS be false in production
+    property bool reinitialize: Properties.prod ? false : true
 
     signal ready
 
     onReady: {
         console.log(objectName, ":: Ready")
-
-        // test
-        var query = "SELECT * FROM Settings";
-        execute(query, function(data) {
-            for (var i = 0; i < data.length; i++) {
-                console.log(JSON.stringify(data[i]))
-            }
-        })
     }
 
     onInitStateChanged: {
@@ -45,6 +37,7 @@ Item {
             break
         case initStates.Uninitialized:
             console.log(objectName, ":: Init state: Uninitialized")
+            Properties.setupRequired = true
             initializeDb()
             break
         default:
@@ -105,10 +98,8 @@ Item {
         var values = ""
         for (var i in tableObj.schema) {
             schema += tableObj.schema[i].attr + " " + tableObj.schema[i]._type + ", "
-            if (tableObj.schema[i].attr != "id") {
-                columns += tableObj.schema[i].attr + ", "
-                values += "'" + tableObj.defaults[tableObj.schema[i].attr] + "'" + ", "
-            }
+            columns += tableObj.schema[i].attr + ", "
+            values += "'" + tableObj.defaults[tableObj.schema[i].attr] + "'" + ", "
         }
         schema = schema.slice(0, -2)
         columns = columns.slice(0, -2)
