@@ -4,11 +4,17 @@ import QtQuick.Controls 1.4
 import "qrc:/pages"
 import "qrc:/global"
 import "qrc:/components"
+import "qrc:/config"
+import "qrc:/config/Config.js" as Config
 
-Window {
+Item {
+    id: engine
+
+    property bool consoleDebug: true
+
     visible: true
-    width: 750
-    height: 1334
+    width: consoleDebug ? 0 : 750
+    height: consoleDebug ? 0 : 1334
 
     HeaderBar {
         id: headerBar
@@ -38,7 +44,22 @@ Window {
         }
     }
 
+    DatabaseManager {
+        id: database
+    }
+
+//    SqlListModel {
+//        id: modelSettings
+
+//        query: "SELECT * FROM settings"
+
+//        onReady: {
+//            console.log(JSON.stringify(data))
+//        }
+//    }
+
     Component.onCompleted: {
         pageStack.goToPage("Home", {}, false)
+//        console.log(JSON.stringify(Config.settings))
     }
 }

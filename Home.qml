@@ -7,7 +7,7 @@ Page {
 
     Text {
         anchors.centerIn: parent
-        text: "Hello"
+        text: "Home"
         color: "black"
         font.pointSize: 28
     }

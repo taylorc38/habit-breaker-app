@@ -15,6 +15,7 @@ Item {
         id: _paths
 
         property string iconPath: Qt.resolvedUrl("qrc:/icons/")
+        property string database: "config_db"
     }
 
     QtObject {

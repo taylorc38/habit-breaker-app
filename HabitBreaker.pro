@@ -1,14 +1,18 @@
 TEMPLATE = app
 
-QT += qml quick
+QT += qml quick sql widgets multimedia
+
 CONFIG += c++11
+CONFIG -= bitcode
+
+HEADERS +=
 
 SOURCES += main.cpp
 
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH = $$PWD/global
+QML_IMPORT_PATH =
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
@@ -28,4 +32,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+ios {
+    HEADERS += \
+        iosutility.h
+
+    SOURCES += \
+        iosutility.mm
+}
+
+android {
+    #todo
+}
 
