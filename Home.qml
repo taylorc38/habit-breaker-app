@@ -7,7 +7,7 @@ Page {
 
     Text {
         anchors.centerIn: parent
-        text: "Hello, " + Properties.userSettings.userName
+        text: "Hello, " + Properties.settings.username
         color: "black"
         font.pointSize: 28
     }

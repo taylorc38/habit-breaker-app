@@ -4,10 +4,10 @@ import QtQuick 2.0
 Item {
     id: root
 
-    property alias colors: _colors
+    property alias colors: _default
 
     QtObject {
-        id: _colors
+        id: _default
 
         property string primary: "#CDFF00"
         property string accent: "#FF3B77"

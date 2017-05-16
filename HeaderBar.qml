@@ -56,9 +56,26 @@ Item {
         color: Theme.colors.primary
     }
 
+    AppLabel {
+        id: labelTitle
+
+        anchors {
+            verticalCenter: parent.verticalCenter
+            left: parent.left; leftMargin: 10
+        }
+        font.pointSize: Properties.fontSizes.regular
+        color: Theme.colors.dark
+        text: appTitle
+    }
+
     // Left side
     ListModel {
         id: listModelLeft
+    }
+
+    // Right side
+    ListModel {
+        id: listModelRight
     }
 
     ListView {
@@ -84,11 +101,6 @@ Item {
         }
     }
 
-    // Right side
-    ListModel {
-        id: listModelRight
-    }
-
     ListView {
         id: listViewRight
 
@@ -112,4 +124,38 @@ Item {
             }
         }
     }
+
+    state: currentPage == "Setup" ? "title" : "buttons"
+    states: [
+        State {
+            name: "buttons"
+            PropertyChanges {
+                target: listViewLeft
+                visible: true
+            }
+            PropertyChanges {
+                target: listViewRight
+                visible: true
+            }
+            PropertyChanges {
+                target: labelTitle
+                visible: false
+            }
+        },
+        State {
+            name: "title"
+            PropertyChanges {
+                target: listViewLeft
+                visible: false
+            }
+            PropertyChanges {
+                target: listViewRight
+                visible: false
+            }
+            PropertyChanges {
+                target: labelTitle
+                visible: true
+            }
+        }
+    ]
 }

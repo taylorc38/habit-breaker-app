@@ -11,6 +11,7 @@ Item {
     id: root
 
     property bool consoleDebug: false // makes window tiny on mac
+    property string appTitle: "HabitBreaker"
 
     // fired when DatabaseManager is ready
     signal appReady
@@ -20,19 +21,7 @@ Item {
     height: consoleDebug ? 0 : 1334
 
     onAppReady: {
-        pageStack.goToPage("Home", {}, false)
-        timerDebug.restart()
-    }
-
-    Timer {
-        id: timerDebug
-        interval: 2000
-        onTriggered: {
-            database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "name", "Boaty McBoatface"))
-            database.execute(SqlQueries.getValue(SqlQueries.tables.settings, "name"), function(data) {
-                console.log("New userName = " + data[0].name)
-            })
-        }
+        pageStack.goToPage("Setup", {}, false)
     }
 
     HeaderBar {
@@ -71,11 +60,16 @@ Item {
             // Load settings
             execute(SqlQueries.getAll(SqlQueries.tables.settings), function(data) {
                 Properties.settings.user_id = data[0].user_id
-                Properties.settings.userName = data[0].name
+                Properties.settings.username = data[0].name
                 Properties.settings.skin = data[0].skin
             })
             // Start the rest of the app
             root.appReady()
         }
+    }
+
+    SettingsManager {
+        id: settings
+        database: database
     }
 }

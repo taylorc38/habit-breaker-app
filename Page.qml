@@ -24,5 +24,4 @@ Item {
         color: Theme.colors.background
     }
 
-
 }
