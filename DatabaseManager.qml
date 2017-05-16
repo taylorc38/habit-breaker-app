@@ -18,7 +18,7 @@ Item {
         "Uninitialized" : 2
     })
     property int initState: initStates.Unknown
-    property bool reinitialize: Properties.prod ? false : true
+    property bool reinitialize: properties.prod ? false : true
 
     signal ready
 
@@ -37,7 +37,7 @@ Item {
             break
         case initStates.Uninitialized:
             console.log(objectName, ":: Init state: Uninitialized")
-            Properties.setupRequired = true
+            properties.setupRequired = true
             initializeDb()
             break
         default:
@@ -51,7 +51,7 @@ Item {
 
     // Passes a data array to callback, returns true if successful false if not
     function execute(query, callback) {
-        var db = LocalStorage.openDatabaseSync(Properties.paths.database, "1.0", "Config database for HabitBreaker", 100000000, "QSQLITE")
+        var db = LocalStorage.openDatabaseSync(properties.paths.database, "1.0", "Config database for HabitBreaker", 100000000, "QSQLITE")
         var success = true
         db.transaction(function(tx) {
             try {

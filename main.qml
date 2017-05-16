@@ -53,15 +53,20 @@ Item {
         }
     }
 
+    Properties {
+        id: properties
+    }
+
     DatabaseManager {
         id: database
 
         onReady: {
             // Load settings
             execute(SqlQueries.getAll(SqlQueries.tables.settings), function(data) {
-                Properties.settings.user_id = data[0].user_id
-                Properties.settings.username = data[0].name
-                Properties.settings.skin = data[0].skin
+                SqlQueries.user_id = data[0].user_id
+                properties.settings.user_id = data[0].user_id
+                properties.settings.username = data[0].name
+                properties.settings.skin = data[0].skin
             })
             // Start the rest of the app
             root.appReady()

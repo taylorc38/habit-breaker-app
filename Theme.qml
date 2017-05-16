@@ -9,10 +9,9 @@ Item {
     QtObject {
         id: _default
 
-        property string primary: "#CDFF00"
-        property string accent: "#FF3B77"
-        property string background: "#FFFFFF"
-        property string mutedBackground: "#B8B89F"
-        property string dark: "#52656B"
+        property string primary: "#11B683"
+        property string accent: "#FF3366"
+        property string background: "#F9F9FB"
+        property string dark: "#1F2532"
     }
 }

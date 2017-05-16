@@ -74,7 +74,7 @@ Page {
 
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Ask me every..."
-            font.pointSize: Properties.fontSizes.regular
+            font.pointSize: properties.fontSizes.regular
         }
 
         Item {
@@ -105,7 +105,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "I would like my end-of-day report at..."
             wrapMode: Text.Wrap
-            font.pointSize: Properties.fontSizes.regular
+            font.pointSize: properties.fontSizes.regular
         }
 
         Item {
@@ -136,7 +136,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "Do not disturb hours:"
             wrapMode: Text.Wrap
-            font.pointSize: Properties.fontSizes.regular
+            font.pointSize: properties.fontSizes.regular
         }
 
         Item {
@@ -160,7 +160,7 @@ Page {
 
                 anchors.verticalCenter: parent.verticalCenter
                 text: "to"
-                font.pointSize: Properties.fontSizes.medium
+                font.pointSize: properties.fontSizes.medium
             }
 
             ComboBox {

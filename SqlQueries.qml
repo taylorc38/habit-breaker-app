@@ -7,7 +7,7 @@ Item {
 
     property alias tables: _tables
 
-    property int user_id: Properties.settings.user_id
+    property int user_id
 
     QtObject {
         id: _tables

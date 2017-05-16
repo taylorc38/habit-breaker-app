@@ -16,7 +16,6 @@
     </qresource>
     <qresource prefix="/global">
         <file>qmldir</file>
-        <file>Properties.qml</file>
         <file>Theme.qml</file>
         <file>SqlQueries.qml</file>
     </qresource>
@@ -31,5 +30,6 @@
     <qresource prefix="/config">
         <file>Config.js</file>
         <file>DatabaseManager.qml</file>
+        <file>Properties.qml</file>
     </qresource>
 </RCC>

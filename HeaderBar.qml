@@ -7,7 +7,7 @@ Item {
     property string currentPage
     property var pageIconTable: {
         "Home" : {
-            "left" : [Properties.buttonModels.back],
+            "left" : [properties.buttonModels.back],
             "right" : []
         }
     }
@@ -53,7 +53,7 @@ Item {
     Rectangle {
         id: background
         anchors.fill: parent
-        color: Theme.colors.primary
+        color: Theme.colors.dark
     }
 
     AppLabel {
@@ -63,8 +63,8 @@ Item {
             verticalCenter: parent.verticalCenter
             left: parent.left; leftMargin: 10
         }
-        font.pointSize: Properties.fontSizes.regular
-        color: Theme.colors.dark
+        font.pointSize: properties.fontSizes.regular
+        color: Theme.colors.background
         text: appTitle
     }
 

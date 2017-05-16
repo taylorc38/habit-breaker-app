@@ -10,7 +10,7 @@ ComboBoxStyle {
         color: Theme.colors.background
         border {
             width: 2
-            color: control.pressed ? Theme.colors.accent : Theme.colors.mutedBackground
+            color: control.pressed ? Theme.colors.accent : Theme.colors.dark
         }
         Image {
             id: icon
@@ -20,7 +20,7 @@ ComboBoxStyle {
                 right: parent.right; rightMargin: width * .25
                 verticalCenter: parent.verticalCenter
             }
-            source: Properties.paths.iconPath + (control.pressed ? "arrow-down-pressed.png" : "arrow-down.png")
+            source: properties.paths.iconPath + (control.pressed ? "arrow-down-pressed.png" : "arrow-down.png")
             fillMode: Image.Stretch
         }
     }
@@ -34,7 +34,7 @@ ComboBoxStyle {
             anchors {
                 centerIn: parent
             }
-            font.pointSize: Properties.fontSizes.medium
+            font.pointSize: properties.fontSizes.medium
             text: control.currentText
         }
     }

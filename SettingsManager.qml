@@ -9,7 +9,7 @@ Item {
     function setUsername(username) {
         database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "name", username))
         database.execute(SqlQueries.getValue(SqlQueries.tables.settings, "name"), function(data) {
-            Properties.settings.username = data[0].name
+            properties.settings.username = data[0].name
         })
     }
 
@@ -17,7 +17,7 @@ Item {
     function setSkin(skin) {
         database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "skin", skin))
         database.execute(SqlQueries.getValue(SqlQueries.tables.settings, "skin"), function(data) {
-            Properties.settings.skin = data[0].skin
+            properties.settings.skin = data[0].skin
             Theme.activeSkin = data[0].skin
         })
     }

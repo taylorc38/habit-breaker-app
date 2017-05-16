@@ -4,5 +4,5 @@ import "qrc:/global"
 Text {
     id: root
 
-    font.family: Properties.appFont.name
+    font.family: properties.appFont.name
 }

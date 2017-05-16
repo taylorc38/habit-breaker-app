@@ -7,8 +7,8 @@ Image {
     property string pressedSource: ""
 
     source: iconSource
-    width: Properties.dimens.iconWidth
-    height: Properties.dimens.iconHeight
+    width: properties.dimens.iconWidth
+    height: properties.dimens.iconHeight
     fillMode: Image.Stretch
 
     signal activated
