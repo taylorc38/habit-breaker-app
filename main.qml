@@ -10,7 +10,7 @@ import "qrc:/config/Config.js" as Config
 Item {
     id: engine
 
-    property bool consoleDebug: true
+    property bool consoleDebug: false
 
     visible: true
     width: consoleDebug ? 0 : 750
@@ -46,20 +46,20 @@ Item {
 
     DatabaseManager {
         id: database
+
+        onReady: {
+            var getSettings = "SELECT * FROM Settings" // todo refactor queries into one spot
+            execute(getSettings, function(data) {
+                var settingsObj = data[0]
+                console.log("SettingsObj = " + JSON.stringify(settingsObj))
+                Properties.userSettings.userName = settingsObj.name
+                Properties.userSettings.skin = settingsObj.skin
+            })
+        }
+
     }
-
-//    SqlListModel {
-//        id: modelSettings
-
-//        query: "SELECT * FROM settings"
-
-//        onReady: {
-//            console.log(JSON.stringify(data))
-//        }
-//    }
 
     Component.onCompleted: {
         pageStack.goToPage("Home", {}, false)
-//        console.log(JSON.stringify(Config.settings))
     }
 }

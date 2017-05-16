@@ -6,12 +6,7 @@
 #include <QDateTime>
 #include <QQmlFileSelector>
 #include <QFileInfo>
-#include <QDir>
-#include <QCryptographicHash>
-
-#include "sqlmodel.h"
 #include "iosutility.h"
-#import <QStandardPaths>
 
 int main(int argc, char *argv[])
 {

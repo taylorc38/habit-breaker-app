@@ -18,7 +18,7 @@ Item {
         "Uninitialized" : 2
     })
     property int initState: initStates.Unknown
-    property bool reinitialize: true
+    property bool reinitialize: true // Should ALWAYS be false in production
 
     signal ready
 
