@@ -72,7 +72,7 @@ Page {
         AppLabel {
             id: labelInterval
 
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.left: parent.left
             text: "Ask me every..."
             font.pointSize: properties.fontSizes.regular
         }
@@ -84,7 +84,7 @@ Page {
 
         ComboBox {
             id: comboInterval
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.left: rowDnd.left
             width: comboWidth
             height: comboHeight
             model: modelInterval
@@ -102,7 +102,7 @@ Page {
             id: labelEndOfDay
 
             width: comboEndOfDay.width * 1.5
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.left: parent.left
             text: "I would like my end-of-day report at..."
             wrapMode: Text.Wrap
             font.pointSize: properties.fontSizes.regular
@@ -115,7 +115,7 @@ Page {
 
         ComboBox {
             id: comboEndOfDay
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.left: rowDnd.left
             width: comboWidth
             height: comboHeight
             model: modelHoursInDay
@@ -133,7 +133,7 @@ Page {
             id: labelDnd
 
             width: comboEndOfDay.width * 1.5
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.left: parent.left
             text: "Do not disturb hours:"
             wrapMode: Text.Wrap
             font.pointSize: properties.fontSizes.regular
@@ -145,6 +145,7 @@ Page {
         }
 
         Row {
+            id: rowDnd
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 10
             ComboBox {
