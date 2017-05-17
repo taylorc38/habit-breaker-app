@@ -12,15 +12,16 @@ Item {
     property bool prod: false
     property bool setupRequired: false
 
-    property var buttonModels: {
-        "back" : { "id" : "back", "iconSource" : paths.iconPath + "back.png", "pressedSource" : paths.iconPath + "back-pressed.png" }
-    }
     QtObject {
         id: _settings
 
         property int user_id
         property string username
         property string skin: "default"
+        property int countdown
+        property int eod
+        property int dndTo
+        property int dndFrom
     }
 
     // ios already has this font and doesn't like loading my .ttf file...
@@ -55,5 +56,7 @@ Item {
 
         property int iconWidth: 50
         property int iconHeight: 50
+        property int buttonWidth: 150
+        property int buttonHeight: 100
     }
 }

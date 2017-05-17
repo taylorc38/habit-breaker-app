@@ -13,6 +13,7 @@
         <file>Page.qml</file>
         <file>Home.qml</file>
         <file>Setup.qml</file>
+        <file>DebugPanel.qml</file>
     </qresource>
     <qresource prefix="/global">
         <file>qmldir</file>
@@ -26,6 +27,9 @@
         <file>ComboBoxStyleA.qml</file>
         <file>SettingsManager.qml</file>
         <file>AppLabel.qml</file>
+        <file>DebugTab.qml</file>
+        <file>ButtonStyleA.qml</file>
+        <file>BaseButton.qml</file>
     </qresource>
     <qresource prefix="/config">
         <file>Config.js</file>

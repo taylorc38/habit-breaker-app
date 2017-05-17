@@ -21,7 +21,11 @@ Item {
     height: consoleDebug ? 0 : 1334
 
     onAppReady: {
-        pageStack.goToPage("Setup", {}, false)
+        if (properties.setupRequired) {
+            pageStack.goToPage("Setup", {}, false)
+        } else {
+            pageStack.goToPage("Home", {}, false)
+        }
     }
 
     HeaderBar {
@@ -67,6 +71,10 @@ Item {
                 properties.settings.user_id = data[0].user_id
                 properties.settings.username = data[0].name
                 properties.settings.skin = data[0].skin
+                properties.settings.countdown = data[0].countdown
+                properties.settings.eod = data[0].eod
+                properties.settings.dndFrom = data[0].dndFrom
+                properties.settings.dndTo = data[0].dndTo
             })
             // Start the rest of the app
             root.appReady()
@@ -77,4 +85,15 @@ Item {
         id: settings
         database: database
     }
+
+    DebugTab {
+        id: debugTab
+
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+        }
+        z: 100
+    }
+
 }

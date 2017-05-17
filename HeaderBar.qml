@@ -6,10 +6,21 @@ Item {
 
     property string currentPage
     property var pageIconTable: {
+        "Setup" : {
+            "left" : [],
+            "right" : []
+        },
         "Home" : {
-            "left" : [properties.buttonModels.back],
+            "left" : [buttonModels.back],
+            "right" : []
+        },
+        "Confirm" : {
+            "left" : [],
             "right" : []
         }
+    }
+    property var buttonModels: {
+        "back" : { "id" : "back", "iconSource" : properties.paths.iconPath + "back.png", "pressedSource" : properties.paths.iconPath + "back-pressed.png" }
     }
 
     signal iconClicked(string id)

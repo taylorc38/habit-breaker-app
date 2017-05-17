@@ -33,7 +33,7 @@ StackView {
         if (depth === 1) {
             clear()
         } else {
-            var pageIndex = pageStackView.isPageLoaded(page)
+            var pageIndex = root.isPageLoaded(page)
             if (pageIndex != -1) {
                 closePageIndex(pageIndex)
             } else {
@@ -105,9 +105,9 @@ StackView {
         if (debug)
             console.log("looking for page : " + page)
         for (var i=0; i<root.depth; i++) {
-            Log.debug("Stack item " + i + " : " + root.get(i, true).objectName)
+            console.log("Stack item " + i + " : " + root.get(i, true).objectName)
             if (root.get(i, true).objectName == page) {
-                Log.debug("found page : " + page + " : " + i)
+                console.log("found page : " + page + " : " + i)
                 return i
             }
         }

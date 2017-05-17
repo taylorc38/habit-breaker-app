@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.2.1, 2017-05-15T22:25:26. -->
+<!-- Written by QtCreator 4.2.1, 2017-05-16T21:33:35. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -310,7 +310,7 @@
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">HabitBreaker.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory"></value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default">/Users/taylor.cunningham/Development/build-HabitBreaker-Desktop_Qt_5_8_0_clang_64bit-Debug/HabitBreaker.app/Contents/MacOS</value>
+    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.UserWorkingDirectory.default">/Users/taylor.cunningham/Development/build-HabitBreaker-iphoneos_clang_Qt_5_8_0_for_iOS-Debug/HabitBreaker.app/Contents/MacOS</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -326,7 +326,7 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">iphoneos-clang Qt 5.8.0 for iOS</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">iphoneos-clang Qt 5.8.0 for iOS</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{3085cc21-e7cc-45ef-8ebd-a5010c82fe73}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{1c8a9d70-6193-4921-bada-51b03a76080a}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
