@@ -5,6 +5,7 @@ Item {
 
     property alias settings: _settings
     property alias appFont: fontLoader
+    property alias appFontBig: fontLoader_big
     property alias fontSizes: _fontSizes
     property alias paths: _paths
     property alias dimens: _dimensions
@@ -31,6 +32,15 @@ Item {
 //        source: paths.fontPath + "AmericanTypewriterRegular.ttf"
         onStatusChanged: {
             console.log("Font status = " + status)
+        }
+    }
+
+    FontLoader {
+        id: fontLoader_big
+        name: "Great Lakes"
+        source: paths.fontPath + "GreatLakes.ttf"
+        onStatusChanged: {
+            console.log("Font_big status = " + status)
         }
     }
 

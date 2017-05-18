@@ -21,6 +21,7 @@ Item {
     height: consoleDebug ? 0 : 1334
 
     onAppReady: {
+//        pageStack.goToPage("Home", {}, false)
         if (properties.setupRequired) {
             pageStack.goToPage("Setup", {}, false)
         } else {

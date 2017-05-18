@@ -8,6 +8,7 @@
         <file>iosutility.h</file>
         <file>main.cpp</file>
         <file>fonts/AmericanTypewriterRegular.ttf</file>
+        <file>fonts/GreatLakes.ttf</file>
     </qresource>
     <qresource prefix="/pages">
         <file>Page.qml</file>

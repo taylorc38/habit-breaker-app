@@ -28,6 +28,7 @@ Page {
     signal endOfDayChosen(int index)
     signal dndToChosen(int index)
     signal dndFromChosen(int index)
+    signal setupConfirmed
 
     state: "setup"
     states: [
@@ -54,6 +55,10 @@ Page {
             }
         }
     ]
+
+    onSetupConfirmed: {
+        pageStack.goToPage("Home", {}, true)
+    }
 
     onActivated: {
         // Assign once to avoid data binding affecting performance
@@ -176,7 +181,7 @@ Page {
         }
         AppLabel {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Do not disturb: " + modelHoursInDay[comboDndFrom.currentIndex] + " to " + modelHoursInDay[comboDndTo.currentIndex]
+            text: "D.N.D: " + modelHoursInDay[comboDndFrom.currentIndex] + " to " + modelHoursInDay[comboDndTo.currentIndex]
             font.pointSize: properties.fontSizes.regular
         }
 
@@ -194,7 +199,7 @@ Page {
             height: comboHeight
 
             onActivated: {
-                pageStack.goToPage("Home", {}, true)
+                setupConfirmed()
             }
         }
         BaseButton {
@@ -224,17 +229,19 @@ Page {
 
         Item {
             width: parent.width
-            height: blockSpacerHeight
+            height: promptSpacerHeight
         }
 
         // Title
         AppLabel {
             id: labelTitle
 
+            width: parent.width
             anchors.left: parent.left
             text: "Just a couple of questions..."
             font.pointSize: properties.fontSizes.regular
             font.bold: true
+            wrapMode: Text.Wrap
         }
         Item {
             width: parent.width

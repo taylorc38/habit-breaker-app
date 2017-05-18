@@ -22,9 +22,16 @@ ButtonStyle {
         anchors.centerIn: parent
         AppLabel {
             anchors.centerIn: parent
+            width: control.width * .80
+            font.bold: true
             font.pointSize: properties.fontSizes.medium
             text: control.text
             color: Theme.colors.background
+            wrapMode: Text.Wrap
+            Component.onCompleted: {
+                control.labelWidth = paintedWidth
+                control.labelHeight = paintedHeight
+            }
         }
     }
 }

@@ -5,10 +5,12 @@ import "qrc:/global"
 Button {
     id: root
 
-    signal activated
-
+    property int labelWidth
+    property int labelHeight
     property string colorDefault: Theme.colors.primary
     property string colorPressed: Theme.colors.primaryLight
+
+    signal activated
 
     width: properties.dimens.buttonWidth
     height: properties.dimens.buttonHeight
