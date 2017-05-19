@@ -9,6 +9,7 @@ Button {
     property int labelHeight
     property string colorDefault: Theme.colors.primary
     property string colorPressed: Theme.colors.primaryLight
+    property bool centerAlignText: false
 
     signal activated
 
@@ -17,6 +18,7 @@ Button {
     style: ButtonStyleA {
         colorDefault: root.colorDefault
         colorPressed: root.colorPressed
+        centerAlignText: root.centerAlignText
     }
 
     onClicked: {

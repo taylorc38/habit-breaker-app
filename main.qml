@@ -21,7 +21,6 @@ Item {
     height: consoleDebug ? 0 : 1334
 
     onAppReady: {
-//        pageStack.goToPage("Home", {}, false)
         if (properties.setupRequired) {
             pageStack.goToPage("Setup", {}, false)
         } else {
@@ -87,14 +86,14 @@ Item {
         database: database
     }
 
-    DebugTab {
-        id: debugTab
+//    DebugTab {
+//        id: debugTab
 
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-        }
-        z: 100
-    }
+//        anchors {
+//            bottom: parent.bottom
+//            left: parent.left
+//        }
+//        z: 100
+//    }
 
 }

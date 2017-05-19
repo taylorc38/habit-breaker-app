@@ -9,12 +9,15 @@
         <file>main.cpp</file>
         <file>fonts/AmericanTypewriterRegular.ttf</file>
         <file>fonts/GreatLakes.ttf</file>
+        <file>icons/ok-hand.png</file>
     </qresource>
     <qresource prefix="/pages">
         <file>Page.qml</file>
         <file>Home.qml</file>
         <file>Setup.qml</file>
         <file>DebugPanel.qml</file>
+        <file>Reward.qml</file>
+        <file>Failure.qml</file>
     </qresource>
     <qresource prefix="/global">
         <file>qmldir</file>

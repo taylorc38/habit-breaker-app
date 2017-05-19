@@ -51,6 +51,7 @@ Item {
         property int medium: 20
         property int regular: 24
         property int large: 36
+        property int huge: 48
     }
 
     QtObject {

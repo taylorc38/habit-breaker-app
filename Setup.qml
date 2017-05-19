@@ -36,24 +36,55 @@ Page {
             name: "setup"
             PropertyChanges {
                 target: columnSetup
-                visible: true
+                opacity: 1
             }
             PropertyChanges {
                 target: columnConfirm
-                visible: false
+                opacity: 0
             }
         },
         State {
             name: "confirm"
             PropertyChanges {
                 target: columnSetup
-                visible: false
+                opacity: 0
             }
             PropertyChanges {
                 target: columnConfirm
-                visible: true
+                opacity: 1
             }
         }
+    ]
+    transitions: [
+        Transition {
+            from: "setup"; to: "confirm"
+            SequentialAnimation {
+                NumberAnimation {
+                    target: columnSetup
+                    property: "opacity"
+                    duration: 500
+                    easing.type: Easing.InOutQuad
+                }
+                ScriptAction {
+                    script: { columnSetup.visible = false; columnConfirm.visible = true }
+                }
+            }
+        },
+        Transition {
+            from: "confirm"; to: "setup"
+            SequentialAnimation {
+                NumberAnimation {
+                    target: columnConfirm
+                    property: "opacity"
+                    duration: 500
+                    easing.type: Easing.InOutQuad
+                }
+                ScriptAction {
+                    script: { columnConfirm.visible = false; columnSetup.visible = true }
+                }
+            }
+        }
+
     ]
 
     onSetupConfirmed: {
@@ -92,7 +123,7 @@ Page {
     }
 
     onSetupCompletedChanged: {
-        timerSetupComplete.restart()
+        state = "confirm"
     }
 
     function reset() {
@@ -142,20 +173,14 @@ Page {
         return arr
     }
 
-    Timer {
-        id: timerSetupComplete
-        interval: 500
-        onTriggered: {
-            state = "confirm"
-        }
-    }
-
     Column {
         id: columnConfirm
 
         width: parent.width * .90
         anchors.centerIn: parent
         spacing: 10
+        opacity: 0
+        visible: false
 
         AppLabel {
             anchors.horizontalCenter: parent.horizontalCenter
@@ -197,6 +222,7 @@ Page {
             text: "Looks good"
             width: comboWidth
             height: comboHeight
+            centerAlignText: true
 
             onActivated: {
                 setupConfirmed()
@@ -211,6 +237,7 @@ Page {
             colorPressed: Theme.colors.errorLight
             width: comboWidth
             height: comboHeight
+            centerAlignText: true
 
             onActivated: {
                 reset()

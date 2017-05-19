@@ -43,29 +43,37 @@ Page {
     }
 
     onCountdownFinished: {
-        // go to reward or bad page
+        if (root.numTimes > 0) {
+            // bad!
+            // todo save data for bad job
+            pageStack.goToPage("Failure", { "numTimes" : root.numTimes }, true)
+        } else {
+            // good!
+            // todo save data for good job
+            pageStack.goToPage("Reward", {}, true)
+        }
     }
 
-    Column {
+    Item {
         id: columnPrompt
 
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            top: parent.top; topMargin: parent.height * .10
-        }
-        width: parent.width * .90
-        spacing: parent.height * .20
+        width: parent.width
+        height: parent.height
 
         AppLabel {
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: parent.top; topMargin: parent.height * .20
+            }
             text: "Got the urge?\nIt's okay."
             font.pointSize: properties.fontSizes.large
         }
 
         BaseButton {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: properties.dimens.buttonWidth
-            height: properties.dimens.buttonHeight
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: parent.bottom; bottomMargin: parent.height * .20
+            }
             text: "Start the countdown"
 
             onActivated: {
@@ -168,7 +176,7 @@ Page {
             AppLabel {
                 anchors.verticalCenter: parent.verticalCenter
                 font.pointSize: properties.fontSizes.regular
-                text: "times"
+                text: root.numTimes == 1 ? "time" : "times"
                 color: Theme.colors.dark
             }
         }

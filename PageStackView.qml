@@ -124,4 +124,63 @@ StackView {
             root.goBack()
         }
     }
+
+    delegate: StackViewDelegate {
+        popTransition: StackViewTransition {
+            PropertyAnimation {
+                target: enterItem
+                property: "opacity"
+                from: 0
+                to: 1
+                duration: 300
+            }
+            PropertyAnimation {
+                target: exitItem
+                property: "opacity"
+                from: 1
+                to: 0
+                duration: 300
+            }
+        }
+
+        pushTransition: StackViewTransition {
+            ParallelAnimation {
+                PropertyAnimation {
+                    target: enterItem
+                    property: "opacity"
+                    from: 0
+                    to: 1
+                    duration: 300
+                }
+
+                PropertyAnimation {
+                    target: exitItem
+                    property: "opacity"
+                    from: 1
+                    to: 0
+                    duration: 300
+                }
+            }
+        }
+
+        replaceTransition: StackViewTransition {
+            ParallelAnimation {
+                PropertyAnimation {
+                    target: enterItem
+                    property: "opacity"
+                    from: 0
+                    to: 1
+                    duration: 300
+                }
+
+                PropertyAnimation {
+                    target: exitItem
+                    property: "opacity"
+                    from: 1
+                    to: 0
+                    duration: 300
+                }
+            }
+        }
+    }
 }

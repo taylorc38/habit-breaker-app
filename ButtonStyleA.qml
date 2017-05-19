@@ -7,6 +7,7 @@ ButtonStyle {
 
     property string colorDefault
     property string colorPressed
+    property bool centerAlignText: false
 
     background: Rectangle {
         width: control.width
@@ -28,6 +29,7 @@ ButtonStyle {
             text: control.text
             color: Theme.colors.background
             wrapMode: Text.Wrap
+            horizontalAlignment: root.centerAlignText ? Text.AlignHCenter : Text.AlignLeft
             Component.onCompleted: {
                 control.labelWidth = paintedWidth
                 control.labelHeight = paintedHeight
