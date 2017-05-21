@@ -7,12 +7,12 @@ Item {
     property string currentPage
     property var pageIconTable: {
         "Setup" : {
-            "left" : [],
+            "left" : pageStack.depth > 1 ? [buttonModels.back] : [],
             "right" : []
         },
         "Home" : {
-            "left" : [buttonModels.back],
-            "right" : []
+            "left" : [],
+            "right" : [buttonModels.settings]
         },
         "Confirm" : {
             "left" : [],
@@ -20,7 +20,8 @@ Item {
         }
     }
     property var buttonModels: {
-        "back" : { "id" : "back", "iconSource" : properties.paths.iconPath + "back.png", "pressedSource" : properties.paths.iconPath + "back-pressed.png" }
+        "back" : { "id" : "back", "iconSource" : properties.paths.iconPath + "back.png", "pressedSource" : properties.paths.iconPath + "back-pressed.png" },
+        "settings" : { "id" : "settings", "iconSource" : properties.paths.iconPath + "settings.png", "pressedSource" : properties.paths.iconPath + "settings-pressed.png" }
     }
 
     signal iconClicked(string id)
@@ -33,7 +34,10 @@ Item {
         console.log(":: HeaderBar :: Icon clicked: " + id)
         switch (id) {
         case "back":
-            // todo
+            pageStack.goBack()
+            break
+        case "settings":
+            pageStack.goToPage("Setup", {}, false)
             break
         default:
             console.log(":: HeaderBar :: Unknown icon clicked: " + id)
@@ -72,7 +76,7 @@ Item {
 
         anchors {
             verticalCenter: parent.verticalCenter
-            left: parent.left; leftMargin: 10
+            left: parent.left; leftMargin: root.height * .80 + 20
         }
         font.pointSize: properties.fontSizes.regular
         color: Theme.colors.background
@@ -136,37 +140,37 @@ Item {
         }
     }
 
-    state: currentPage == "Setup" ? "title" : "buttons"
-    states: [
-        State {
-            name: "buttons"
-            PropertyChanges {
-                target: listViewLeft
-                visible: true
-            }
-            PropertyChanges {
-                target: listViewRight
-                visible: true
-            }
-            PropertyChanges {
-                target: labelTitle
-                visible: false
-            }
-        },
-        State {
-            name: "title"
-            PropertyChanges {
-                target: listViewLeft
-                visible: false
-            }
-            PropertyChanges {
-                target: listViewRight
-                visible: false
-            }
-            PropertyChanges {
-                target: labelTitle
-                visible: true
-            }
-        }
-    ]
+//    state: currentPage == "Setup" ? "title" : "buttons"
+//    states: [
+//        State {
+//            name: "buttons"
+//            PropertyChanges {
+//                target: listViewLeft
+//                visible: true
+//            }
+//            PropertyChanges {
+//                target: listViewRight
+//                visible: true
+//            }
+//            PropertyChanges {
+//                target: labelTitle
+//                visible: false
+//            }
+//        },
+//        State {
+//            name: "title"
+//            PropertyChanges {
+//                target: listViewLeft
+//                visible: false
+//            }
+//            PropertyChanges {
+//                target: listViewRight
+//                visible: false
+//            }
+//            PropertyChanges {
+//                target: labelTitle
+//                visible: true
+//            }
+//        }
+//    ]
 }

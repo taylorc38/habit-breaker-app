@@ -9,6 +9,8 @@ Page {
     id: root
     objectName: "Setup"
 
+    property bool firstTimeSettingUp: false
+
     property int promptSpacerHeight: height * .03
     property int blockSpacerHeight: height * .07
     property int comboWidth: width * .40
@@ -20,14 +22,14 @@ Page {
 
     property bool countdown: comboCountdown.currentIndex > 0
     property bool eod: comboEndOfDay.currentIndex > 0
-    property bool dndFrom: comboDndFrom.currentIndex > 0
-    property bool dndTo: comboDndTo.currentIndex > 0
-    property bool setupCompleted: countdown && eod && dndFrom && dndTo
+//    property bool dndFrom: comboDndFrom.currentIndex > 0
+//    property bool dndTo: comboDndTo.currentIndex > 0
 
     signal countdownChosen(int index)
     signal endOfDayChosen(int index)
-    signal dndToChosen(int index)
-    signal dndFromChosen(int index)
+//    signal dndToChosen(int index)
+//    signal dndFromChosen(int index)
+    signal setupCompleted
     signal setupConfirmed
 
     state: "setup"
@@ -96,6 +98,24 @@ Page {
         modelCountdown = getFiveSecondIntervals()
         modelHoursInDay = getDayModel()
         hoursInDayValues = getDayValues()
+
+        if (!firstTimeSettingUp) {
+            // Grab data from db to set as defaults
+            var savedCountdown
+            var savedEod
+//            var savedDndFrom
+//            var savedDndTo
+            database.execute(SqlQueries.getAll("settings"), function(data) {
+                savedCountdown = data[0].countdown
+                savedEod = data[0].eod
+//                savedDndFrom = data[0].dndFrom
+//                savedDndTo = data[0].dndTo
+            })
+            comboCountdown.currentIndex = modelCountdown.indexOf(savedCountdown)
+            comboEndOfDay.currentIndex = hoursInDayValues.indexOf(savedEod)
+//            comboDndFrom.currentIndex = hoursInDayValues.indexOf(savedDndFrom)
+//            comboDndTo.currentIndex = hoursInDayValues.indexOf(savedDndTo)
+        }
     }
 
     onCountdownChosen: {
@@ -110,27 +130,28 @@ Page {
         settings.setEod(value)
     }
 
-    onDndToChosen: {
-        if (index == 0) return
-        var value = hoursInDayValues[index]
-        settings.setDndTo(value)
-    }
+//    onDndToChosen: {
+//        if (index == 0) return
+//        console.log("dndto chosen index = " + index)
+//        var value = hoursInDayValues[index]
+//        settings.setDndTo(value)
+//    }
 
-    onDndFromChosen: {
-        if (index == 0) return
-        var value = hoursInDayValues[index]
-        settings.setDndFrom(value)
-    }
+//    onDndFromChosen: {
+//        if (index == 0) return
+//        var value = hoursInDayValues[index]
+//        settings.setDndFrom(value)
+//    }
 
-    onSetupCompletedChanged: {
+    onSetupCompleted: {
         state = "confirm"
     }
 
     function reset() {
         comboCountdown.currentIndex = 0
         comboEndOfDay.currentIndex = 0
-        comboDndFrom.currentIndex = 0
-        comboDndTo.currentIndex = 0
+//        comboDndFrom.currentIndex = 0
+//        comboDndTo.currentIndex = 0
         state = "setup"
     }
 
@@ -204,11 +225,11 @@ Page {
             text: "End of day report: " + modelHoursInDay[comboEndOfDay.currentIndex]
             font.pointSize: properties.fontSizes.regular
         }
-        AppLabel {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "D.N.D: " + modelHoursInDay[comboDndFrom.currentIndex] + " to " + modelHoursInDay[comboDndTo.currentIndex]
-            font.pointSize: properties.fontSizes.regular
-        }
+//        AppLabel {
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            text: "D.N.D: " + modelHoursInDay[comboDndFrom.currentIndex] + " to " + modelHoursInDay[comboDndTo.currentIndex]
+//            font.pointSize: properties.fontSizes.regular
+//        }
 
         Item {
             width: parent.width
@@ -346,57 +367,104 @@ Page {
             height: blockSpacerHeight
         }
 
-        // Do not disturb
-        AppLabel {
-            id: labelDnd
+//        // Do not disturb
+//        AppLabel {
+//            id: labelDnd
 
-            width: parent.width
-            anchors.left: parent.left
-            text: "When shouldn't I disturb you?"
-            wrapMode: Text.Wrap
-            font.pointSize: properties.fontSizes.regular
-        }
-        Item {
-            width: parent.width
-            height: promptSpacerHeight
-        }
+//            width: parent.width
+//            anchors.left: parent.left
+//            text: "When shouldn't I disturb you?"
+//            wrapMode: Text.Wrap
+//            font.pointSize: properties.fontSizes.regular
+//        }
+//        Item {
+//            width: parent.width
+//            height: promptSpacerHeight
+//        }
 
-        Row {
-            id: rowDnd
-            anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 10
-            ComboBox {
-                id: comboDndFrom
-                width: comboWidth
-                height: comboHeight
-                model: modelHoursInDay
-                style: ComboBoxStyleA {}
+//        Row {
+//            id: rowDnd
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            spacing: 10
+//            ComboBox {
+//                id: comboDndFrom
+//                width: comboWidth
+//                height: comboHeight
+//                model: modelHoursInDay
+//                style: ComboBoxStyleA {}
 
-                onCurrentIndexChanged: {
-                    dndFromChosen(currentIndex)
+//                onCurrentIndexChanged: {
+//                    dndFromChosen(currentIndex)
+//                }
+//            }
+
+//            AppLabel {
+//                id: labelDndTo
+
+//                anchors.verticalCenter: parent.verticalCenter
+//                text: "to"
+//                font.pointSize: properties.fontSizes.medium
+//            }
+
+//            ComboBox {
+//                id: comboDndTo
+//                width: comboWidth
+//                height: comboHeight
+//                model: modelHoursInDay
+//                style: ComboBoxStyleA {}
+
+//                onCurrentIndexChanged: {
+//                    dndToChosen(currentIndex)
+//                }
+//            }
+//        }
+
+//        Item {
+//            width: parent.width
+//            height: promptSpacerHeight
+//        }
+
+        BaseButton {
+            id: btnGoToConfirm
+
+            property bool show: comboCountdown.currentIndex > 0
+                                && comboEndOfDay.currentIndex > 0
+//                                && comboDndFrom.currentIndex > 0
+//                                && comboDndTo.currentIndex > 0
+
+            Behavior on anchors.rightMargin {
+                NumberAnimation {
+                    duration: 300
+                    easing.type: Easing.OutQuad
                 }
             }
-
-            AppLabel {
-                id: labelDndTo
-
-                anchors.verticalCenter: parent.verticalCenter
-                text: "to"
-                font.pointSize: properties.fontSizes.medium
+            anchors {
+                right: parent.right; rightMargin: 10
             }
-
-            ComboBox {
-                id: comboDndTo
-                width: comboWidth
-                height: comboHeight
-                model: modelHoursInDay
-                style: ComboBoxStyleA {}
-
-                onCurrentIndexChanged: {
-                    dndToChosen(currentIndex)
+            height: comboHeight
+            text: "I'm good!"
+            centerAlignText: true
+            state: show ? "shown" : "hidden"
+            states: [
+                State {
+                    name: "hidden"
+                    PropertyChanges {
+                        target: btnGoToConfirm
+                        anchors.rightMargin: -1 * btnGoToConfirm.width - 50
+                    }
+                },
+                State {
+                    name: "shown"
+                    PropertyChanges {
+                        target: btnGoToConfirm
+                        anchors.rightMargin: 20
+                    }
                 }
+            ]
+
+            onActivated: {
+                root.setupCompleted()
             }
         }
     }
-
 }

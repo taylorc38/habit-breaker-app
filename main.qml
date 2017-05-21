@@ -22,7 +22,7 @@ Item {
 
     onAppReady: {
         if (properties.setupRequired) {
-            pageStack.goToPage("Setup", {}, false)
+            pageStack.goToPage("Setup", { "firstTimeSettingUp" : true }, false)
         } else {
             pageStack.goToPage("Home", {}, false)
         }

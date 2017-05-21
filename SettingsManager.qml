@@ -21,21 +21,26 @@ Item {
     }
 
     function getCountdown() {
+        var value
         database.execute(SqlQueries.getValue(SqlQueries.tables.settings, "countdown"), function(data) {
-            properties.settings.countdown = data[0].countdown
+            value = data[0].countdown
         })
+        return value
     }
 
     function setCountdown(seconds) {
         if (database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "countdown", seconds))) {
             properties.settings.countdown = seconds
+            getCountdown()
         }
     }
 
     function getEod() {
+        var value
         database.execute(SqlQueries.getValue(SqlQueries.tables.settings, "eod"), function(data) {
-            properties.settings.eod = data[0].eod
+            value = data[0].eod
         })
+        return value
     }
 
     // Where hour is an int 0 - 23
@@ -46,25 +51,29 @@ Item {
     }
 
     function getDndFrom() {
+        var value
         database.execute(SqlQueries.getValue(SqlQueries.tables.settings, "dndFrom"), function(data) {
-            properties.settings.dndFrom = data[0].dndFrom
+            value = data[0].dndFrom
         })
+        return value
     }
 
     function setDndFrom(hour) {
-        if (database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "dndTo"))) {
+        if (database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "dndFrom", hour))) {
             properties.settings.dndFrom = hour
         }
     }
 
     function getDndTo() {
+        var value
         database.execute(SqlQueries.getValue(SqlQueries.tables.settings, "dndTo"), function(data) {
-            properties.settings.dndTo = data[0].dndTo
+            value = data[0].dndTo
         })
+        return value
     }
 
     function setDndTo(hour) {
-        if (database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "dndTo"))) {
+        if (database.execute(SqlQueries.setValue(SqlQueries.tables.settings, "dndTo", hour))) {
             properties.settings.dndTo = hour
         }
     }

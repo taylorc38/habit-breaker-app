@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.2.1, 2017-05-18T18:53:00. -->
+<!-- Written by QtCreator 4.2.1, 2017-05-20T18:28:23. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -326,7 +326,7 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">iphoneos-clang Qt 5.8.0 for iOS</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">iphoneos-clang Qt 5.8.0 for iOS</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{acb8e369-28b7-4aba-b92c-add9d150d38c}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{63369b92-b954-4b95-87bd-b40fbc810338}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>

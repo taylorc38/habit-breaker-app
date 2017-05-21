@@ -10,6 +10,8 @@
         <file>fonts/AmericanTypewriterRegular.ttf</file>
         <file>fonts/GreatLakes.ttf</file>
         <file>icons/ok-hand.png</file>
+        <file>icons/settings-pressed.png</file>
+        <file>icons/settings.png</file>
     </qresource>
     <qresource prefix="/pages">
         <file>Page.qml</file>
