@@ -5,11 +5,17 @@ QT += qml quick sql widgets multimedia
 CONFIG += c++11
 CONFIG -= bitcode
 
-HEADERS +=
+HEADERS += \
+    deviceinterface.h
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    deviceinterface.cpp
 
 RESOURCES += qml.qrc
+
+QMAKE_LFLAGS += -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks
+LIBS += -framework UserNotifications
+
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -34,6 +40,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 ios {
+
     HEADERS += \
         iosutility.h
 

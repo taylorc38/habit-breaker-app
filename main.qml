@@ -21,6 +21,7 @@ Item {
     height: consoleDebug ? 0 : 1334
 
     onAppReady: {
+//        DeviceInterface.scheduleDailyReminder(10);
         if (properties.setupRequired) {
             pageStack.goToPage("Setup", { "firstTimeSettingUp" : true }, false)
         } else {

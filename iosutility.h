@@ -1,7 +1,8 @@
 #ifndef IOSUTILITY_H
 #define IOSUTILITY_H
 
-void testLog();
-void getDatabasePath();
+void scheduleDailyReminderIos(int hour);
+void isNotificationsPermitted();
+void askNotificationsPermission();
 
 #endif // IOSUTILITY_H
