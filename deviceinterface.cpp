@@ -13,7 +13,7 @@ void DeviceInterface::checkNotificationsPermitted() {
 #ifdef Q_OS_IOS
     isNotificationsPermitted();
 #else
-    QDebug() << "Asking for notification permission is not supported on this platform!";
+    qDebug() << "Asking for notification permission is not supported on this platform!";
 #endif
 }
 
@@ -25,7 +25,7 @@ void DeviceInterface::askNotificationPermission(bool granted) {
         qDebug() << "Notification permission has already been granted, no need to ask again.";
     }
 #else
-    QDebug() << "Asking for notification permission is not supported on this platform!";
+    qDebug() << "Asking for notification permission is not supported on this platform!";
 #endif
 }
 
@@ -38,10 +38,19 @@ void DeviceInterface::setPermissionGranted(bool granted) {
     }
 }
 
-void DeviceInterface::scheduleDailyReminder(const int hour) {
+void DeviceInterface::scheduleDailyReminder(const QString title, const QString body, const int hour) {
 #ifdef Q_OS_IOS
-    scheduleDailyReminderIos(hour);
+    removePendingNotifications();
+    scheduleDailyReminderIos(title, body, hour);
 #else
-    QDebug() << "Scheduling push notifications is not supported on this platform!";
+    qDebug() << "Scheduling push notifications is not supported on this platform!";
+#endif
+}
+
+void DeviceInterface::removePendingNotifications() {
+#ifdef Q_OS_IOS
+    removePendingNotificationsIos();
+#else
+    qDebug() << "Scheduling push notifications is not supported on this platform!";
 #endif
 }

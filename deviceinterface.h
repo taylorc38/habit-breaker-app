@@ -3,9 +3,12 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QDate>
+#include <QTime>
+#include <QDateTime>
 
 #ifdef Q_OS_IOS
-#include "iosUtility.h"
+#include "iosutility.h"
 #endif
 
 class DeviceInterface : public QObject {
@@ -14,7 +17,8 @@ public:
     DeviceInterface();
     void checkNotificationsPermitted();
     static void setPermissionGranted(bool granted);
-    Q_INVOKABLE void scheduleDailyReminder(const int hour);
+    Q_INVOKABLE void scheduleDailyReminder(const QString title, const QString body, const int hour);
+    void removePendingNotifications();
     static DeviceInterface* m_instance;
 private slots:
     void askNotificationPermission(bool granted);

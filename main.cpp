@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
     view.engine()->rootContext()->setContextProperty(QLatin1String("DeviceInterface"),
                                                      deviceInterface);
 
+//    pushNotification();
+//    deviceInterface->scheduleDailyReminder("HabitBreaker", "Your End-of-Day Report is ready!", 21);
+
     view.connect(view.engine(), SIGNAL(quit()), &app, SLOT(quit()));
     new QQmlFileSelector(view.engine(), &view);
     view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));
