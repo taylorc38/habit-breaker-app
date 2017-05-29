@@ -13,6 +13,9 @@ Item {
     property bool prod: false
     property bool setupRequired: false
 
+    property string appTitle: "Habit Breaker"
+    property string appNotificationBody: "Check out your daily report!"
+
     QtObject {
         id: _settings
 

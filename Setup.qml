@@ -90,6 +90,7 @@ Page {
     ]
 
     onSetupConfirmed: {
+        DeviceInterface.scheduleDailyReminder(properties.appTitle, properties.appNotificationBody, properties.settings.eod)
         pageStack.goToPage("Home", {}, true)
     }
 
