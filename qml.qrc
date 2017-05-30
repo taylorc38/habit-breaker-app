@@ -12,6 +12,7 @@
         <file>icons/ok-hand.png</file>
         <file>icons/settings-pressed.png</file>
         <file>icons/settings.png</file>
+        <file>icons/report.png</file>
     </qresource>
     <qresource prefix="/pages">
         <file>Page.qml</file>

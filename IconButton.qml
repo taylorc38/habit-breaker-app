@@ -9,7 +9,7 @@ Image {
     source: iconSource
     width: properties.dimens.iconWidth
     height: properties.dimens.iconHeight
-    fillMode: Image.Stretch
+    fillMode: Image.PreserveAspectFit
 
     signal activated
 

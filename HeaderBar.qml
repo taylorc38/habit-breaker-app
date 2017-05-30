@@ -12,16 +12,21 @@ Item {
         },
         "Home" : {
             "left" : [],
-            "right" : [buttonModels.settings]
+            "right" : [buttonModels.report, buttonModels.settings]
         },
         "Confirm" : {
             "left" : [],
             "right" : []
+        },
+        "Analysis" : {
+            "left" : pageStack.depth > 1 ? [buttonModels.back] : [],
+            "right" : [buttonModels.settings]
         }
     }
     property var buttonModels: {
         "back" : { "id" : "back", "iconSource" : properties.paths.iconPath + "back.png", "pressedSource" : properties.paths.iconPath + "back-pressed.png" },
-        "settings" : { "id" : "settings", "iconSource" : properties.paths.iconPath + "settings.png", "pressedSource" : properties.paths.iconPath + "settings-pressed.png" }
+        "settings" : { "id" : "settings", "iconSource" : properties.paths.iconPath + "settings.png", "pressedSource" : properties.paths.iconPath + "settings-pressed.png" },
+        "report" : { "id" : "report", "iconSource" : properties.paths.iconPath + "report.png", "pressedSource" : properties.paths.iconPath + "report-pressed.png" }
     }
 
     signal iconClicked(string id)
@@ -39,6 +44,8 @@ Item {
         case "settings":
             pageStack.goToPage("Setup", {}, false)
             break
+        case "report":
+            pageStack.goToPage("Analysis", {}, false)
         default:
             console.log(":: HeaderBar :: Unknown icon clicked: " + id)
         }
@@ -96,11 +103,13 @@ Item {
     ListView {
         id: listViewLeft
 
+        width: childrenRect.width
         anchors {
             left: parent.left
             top: parent.top
             bottom: parent.bottom
         }
+        boundsBehavior: Flickable.StopAtBounds
         orientation: ListView.Horizontal
         model: listModelLeft
         delegate: IconButton {
@@ -119,17 +128,20 @@ Item {
     ListView {
         id: listViewRight
 
+        width: childrenRect.width
         anchors {
-            right: parent.right
+            right: parent.right; rightMargin: 20
             top: parent.top
             bottom: parent.bottom
         }
+        boundsBehavior: Flickable.StopAtBounds
         orientation: ListView.Horizontal
         layoutDirection: Qt.RightToLeft
+        spacing: 20
         model: listModelRight
         delegate: IconButton {
             width: height
-            height: root.height * .80
+            height: root.height * .60
             anchors.verticalCenter: parent.verticalCenter
             iconSource: model.iconSource
             pressedSource: model.pressedSource

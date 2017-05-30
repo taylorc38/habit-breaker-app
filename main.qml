@@ -22,6 +22,8 @@ Item {
 
     onAppReady: {
 //        DeviceInterface.scheduleDailyReminder(10);
+        pageStack.goToPage("Analysis", {}, true)
+        return
         if (properties.setupRequired) {
             pageStack.goToPage("Setup", { "firstTimeSettingUp" : true }, false)
         } else {
