@@ -27,7 +27,6 @@ Item {
         } else {
             pageStack.goToPage("Home", {}, false)
         }
-        data.appendRecord(5)
     }
 
     HeaderBar {
@@ -89,7 +88,7 @@ Item {
     }
 
     DataManager {
-        id: data
+        id: dataManager
         database: database
     }
 

@@ -46,6 +46,7 @@ Page {
         if (root.numTimes > 0) {
             // bad!
             // todo save data for bad job
+            dataManager.appendRecord(numTimes)
             pageStack.goToPage("Failure", { "numTimes" : root.numTimes }, true)
         } else {
             // good!

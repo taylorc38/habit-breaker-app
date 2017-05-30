@@ -20,6 +20,7 @@
         <file>DebugPanel.qml</file>
         <file>Reward.qml</file>
         <file>Failure.qml</file>
+        <file>Analysis.qml</file>
     </qresource>
     <qresource prefix="/global">
         <file>qmldir</file>
