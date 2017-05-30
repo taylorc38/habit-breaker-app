@@ -36,6 +36,7 @@
         <file>DebugTab.qml</file>
         <file>ButtonStyleA.qml</file>
         <file>BaseButton.qml</file>
+        <file>DataManager.qml</file>
     </qresource>
     <qresource prefix="/config">
         <file>Config.js</file>

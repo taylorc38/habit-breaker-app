@@ -32,4 +32,13 @@ var settings = {
     }
 }
 
-var tables = [init, settings]
+var habit_data = {
+    "table_name" : "Habit_Data",
+    "schema" : [
+        { "attr" : "numTimes", "_type" : "integer" },
+        { "attr" : "date", "_type" : "TEXT" },
+        { "attr" : "time", "_type" : "TEXT" }
+    ]
+}
+
+var tables = [init, settings, habit_data]

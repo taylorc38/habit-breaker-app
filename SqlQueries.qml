@@ -14,6 +14,7 @@ Item {
 
         property string init: "Init"
         property string settings: "Settings"
+        property string habit_data: "Habit_Data"
     }
 
     function getAll(table) {
@@ -26,6 +27,14 @@ Item {
 
     function setValue(table, column, value) {
         return "UPDATE " + table + " SET " + column + " = '" + value + "' WHERE user_id = " + user_id
+    }
+
+    function appendRecord(table, columns, values) {
+        return "INSERT INTO " + table + "(" + columns + ") VALUES (" + values + ")"
+    }
+
+    function getRecordsFromDate(table, date) {
+        return "SELECT * FROM " + table + " WHERE date = " + date
     }
 
 }

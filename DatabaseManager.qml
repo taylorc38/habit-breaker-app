@@ -99,17 +99,23 @@ Item {
         for (var i in tableObj.schema) {
             schema += tableObj.schema[i].attr + " " + tableObj.schema[i]._type + ", "
             columns += tableObj.schema[i].attr + ", "
-            values += "'" + tableObj.defaults[tableObj.schema[i].attr] + "'" + ", "
+            if (tableObj.hasOwnProperty("defaults")) {
+                values += "'" + tableObj.defaults[tableObj.schema[i].attr] + "'" + ", "
+            }
         }
         schema = schema.slice(0, -2)
         columns = columns.slice(0, -2)
         values = values.slice(0, -2)
 
         var create = "CREATE TABLE IF NOT EXISTS " + tableObj.table_name + " (" + schema + ")"
-        var insert = "INSERT INTO " + tableObj.table_name + "(" + columns + ") VALUES (" + values + ")"
+        if (tableObj.hasOwnProperty("defaults")) {
+            var insert = "INSERT INTO " + tableObj.table_name + "(" + columns + ") VALUES (" + values + ")"
+        }
 
         execute(create)
-        execute(insert)
+        if (tableObj.hasOwnProperty("defaults")) {
+            execute(insert)
+        }
     }
 
     function dropTable(table_name) {
