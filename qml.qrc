@@ -13,6 +13,11 @@
         <file>icons/settings-pressed.png</file>
         <file>icons/settings.png</file>
         <file>icons/report.png</file>
+        <file>icons/arrow-right.png</file>
+        <file>icons/arrow-right-pressed.png</file>
+        <file>icons/arrow-left.png</file>
+        <file>icons/arrow-left-pressed.png</file>
+        <file>icons/crown.png</file>
     </qresource>
     <qresource prefix="/pages">
         <file>Page.qml</file>

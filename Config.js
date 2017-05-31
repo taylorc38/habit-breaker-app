@@ -37,7 +37,8 @@ var habit_data = {
     "schema" : [
         { "attr" : "numTimes", "_type" : "integer" },
         { "attr" : "date", "_type" : "TEXT" },
-        { "attr" : "time", "_type" : "TEXT" }
+        { "attr" : "time", "_type" : "TEXT" },
+        { "attr" : "dateSec", "_type" : "integer"} // used for sorting
     ]
 }
 

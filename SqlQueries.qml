@@ -34,7 +34,14 @@ Item {
     }
 
     function getRecordsFromDate(table, date) {
-        return "SELECT * FROM " + table + " WHERE date = " + date
+        return "SELECT * FROM " + table + " WHERE date = " + "'" + date + "'"
     }
 
+    function getColumnDistinct(table, column) {
+        return "SELECT DISTINCT " + column + " FROM " + table
+    }
+
+    function getColumnDistinctSorted(table, column, sort_column, asc_desc) {
+        return "SELECT DISTINCT " + column + " FROM " + table + " ORDER BY " + sort_column + " " + asc_desc
+    }
 }

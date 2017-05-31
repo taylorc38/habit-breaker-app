@@ -10,7 +10,7 @@ Item {
     property alias paths: _paths
     property alias dimens: _dimensions
 
-    property bool prod: false
+    property bool prod: true
     property bool setupRequired: false
 
     property string appTitle: "Habit Breaker"

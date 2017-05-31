@@ -22,13 +22,14 @@ Item {
 
     onAppReady: {
 //        DeviceInterface.scheduleDailyReminder(10);
-        pageStack.goToPage("Analysis", {}, true)
-        return
+//        pageStack.goToPage("Analysis", {}, true)
+//        return
         if (properties.setupRequired) {
             pageStack.goToPage("Setup", { "firstTimeSettingUp" : true }, false)
         } else {
             pageStack.goToPage("Home", {}, false)
         }
+
     }
 
     HeaderBar {
@@ -78,8 +79,20 @@ Item {
                 properties.settings.eod = data[0].eod
                 properties.settings.dndFrom = data[0].dndFrom
                 properties.settings.dndTo = data[0].dndTo
+                database.initCounter++
             })
             // Start the rest of the app
+            root.appReady()
+//            dataManager.populateTestData()
+//            timerSqlLoading.restart()
+        }
+    }
+
+    // In case we need to create test data
+    Timer {
+        id: timerSqlLoading
+        interval: 2000
+        onTriggered: {
             root.appReady()
         }
     }
