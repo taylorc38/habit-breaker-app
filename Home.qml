@@ -66,7 +66,7 @@ Page {
                 horizontalCenter: parent.horizontalCenter
                 top: parent.top; topMargin: parent.height * .20
             }
-            text: "Got the urge?\nIt's okay."
+            text: stringManager.getRandomString("countdownTitle")
             font.pointSize: properties.fontSizes.large
         }
 
@@ -75,7 +75,7 @@ Page {
                 horizontalCenter: parent.horizontalCenter
                 bottom: parent.bottom; bottomMargin: parent.height * .20
             }
-            text: "Start the countdown"
+            text: stringManager.getRandomString("countdownButton")
 
             onActivated: {
                root. state = "countdown"
@@ -112,7 +112,7 @@ Page {
 
         AppLabel {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Relax for..."
+            text: stringManager.getRandomString("countdownInProgress")
             font.pointSize: properties.fontSizes.regular
         }
 
@@ -142,7 +142,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             width: properties.dimens.buttonWidth
             height: properties.dimens.buttonHeight
-            text: "Oops! I did the thing..."
+            text: stringManager.getRandomString("countdownInProgressButton")
             colorDefault: Theme.colors.error
             colorPressed: Theme.colors.errorLight
 

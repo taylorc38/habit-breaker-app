@@ -22,7 +22,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
             font.pointSize: properties.fontSizes.huge
-            text: "Did the thing"
+            text: stringManager.getRandomString("countdownFailure")
         }
 
         Row {
@@ -57,7 +57,7 @@ Page {
     }
 
     BaseButton {
-        text: "OKAY"
+        text: stringManager.getRandomString("countdownFailureButton")
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom; bottomMargin: parent.height * .20

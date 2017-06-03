@@ -21,9 +21,6 @@ Item {
     height: consoleDebug ? 0 : 1334
 
     onAppReady: {
-//        DeviceInterface.scheduleDailyReminder(10);
-//        pageStack.goToPage("Analysis", {}, true)
-//        return
         if (properties.setupRequired) {
             pageStack.goToPage("Setup", { "firstTimeSettingUp" : true }, false)
         } else {
@@ -55,10 +52,6 @@ Item {
         }
         pathToPages: Qt.resolvedUrl("qrc:/pages/")
         debug: false
-
-        onPageLoaded: {
-
-        }
     }
 
     Properties {
@@ -107,14 +100,7 @@ Item {
         database: database
     }
 
-//    DebugTab {
-//        id: debugTab
-
-//        anchors {
-//            bottom: parent.bottom
-//            left: parent.left
-//        }
-//        z: 100
-//    }
-
+    StringManager {
+        id: stringManager
+    }
 }

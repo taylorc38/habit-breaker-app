@@ -206,7 +206,7 @@ Page {
 
         AppLabel {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "How does this look?"
+            text: stringManager.getRandomString("setupConfirmTitle")
             font.pointSize: properties.fontSizes.regular
             font.bold: true
         }
@@ -241,7 +241,7 @@ Page {
             id: btnConfirm
 
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Looks good"
+            text: stringManager.getRandomString("setupConfirmButtonOk")
             width: comboWidth
             height: comboHeight
             centerAlignText: true
@@ -254,7 +254,7 @@ Page {
             id: btnReset
 
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Actually..."
+            text: stringManager.getRandomString("setupConfirmButtonBack")
             colorDefault: Theme.colors.error
             colorPressed: Theme.colors.errorLight
             width: comboWidth
@@ -287,7 +287,7 @@ Page {
 
             width: parent.width
             anchors.left: parent.left
-            text: "Just a couple of questions..."
+            text: stringManager.getRandomString("setupTitle")
             font.pointSize: properties.fontSizes.regular
             font.bold: true
             wrapMode: Text.Wrap
@@ -443,7 +443,7 @@ Page {
                 right: parent.right; rightMargin: 10
             }
             height: comboHeight
-            text: "I'm good!"
+            text: stringManager.getRandomString("setupButton")
             centerAlignText: true
             state: show ? "shown" : "hidden"
             states: [

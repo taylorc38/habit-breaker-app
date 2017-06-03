@@ -44,6 +44,7 @@
         <file>ButtonStyleA.qml</file>
         <file>BaseButton.qml</file>
         <file>DataManager.qml</file>
+        <file>StringManager.qml</file>
     </qresource>
     <qresource prefix="/config">
         <file>Config.js</file>

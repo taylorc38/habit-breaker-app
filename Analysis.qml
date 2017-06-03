@@ -249,7 +249,7 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
                 font.pointSize: properties.fontSizes.regular
                 color: "#000"
-                text: "Your personal best is " + root.bestNumTimes + " times a day!"
+                text: stringManager.getRandomString("reportBest") + root.bestNumTimes + " times a day!"
                 wrapMode: Text.Wrap
             }
         }
