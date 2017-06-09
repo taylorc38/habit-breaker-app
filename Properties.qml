@@ -61,6 +61,7 @@ Item {
         id: _paths
 
         property string iconPath: Qt.resolvedUrl("qrc:/icons/")
+        property string imagePath: Qt.resolvedUrl("qrc:/images/")
         property string fontPath: Qt.resolvedUrl("qrc:/fonts/")
         property string database: "config_db"
     }

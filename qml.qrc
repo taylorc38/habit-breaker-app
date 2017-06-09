@@ -18,6 +18,22 @@
         <file>icons/arrow-left.png</file>
         <file>icons/arrow-left-pressed.png</file>
         <file>icons/crown.png</file>
+        <file>deviceinterface.cpp</file>
+        <file>deviceinterface.h</file>
+        <file>images/100-emoji.png</file>
+        <file>images/balloon.png</file>
+        <file>images/beer-cheers.png</file>
+        <file>images/crown.png</file>
+        <file>images/fam.png</file>
+        <file>images/flexed-biceps.png</file>
+        <file>images/frogboi.png</file>
+        <file>images/glowing-star.png</file>
+        <file>images/heart.png</file>
+        <file>images/ok-hand-sign.png</file>
+        <file>images/snek.png</file>
+        <file>images/snowflake.png</file>
+        <file>images/turtle.png</file>
+        <file>images/unicorn-face.png</file>
     </qresource>
     <qresource prefix="/pages">
         <file>Page.qml</file>

@@ -6,26 +6,31 @@ Page {
     id: root
     objectName: "Reward"
 
+    property var successObj: stringManager.getSuccessObject()
+
     Column {
         anchors {
             horizontalCenter: parent.horizontalCenter
             top: parent.top; topMargin: root.height * .10
         }
         width: root.width
-        spacing: 30
+        spacing: 40
 
         AppLabel {
+            id: labelSuccess
             width: parent.width * .80
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: stringManager.getRandomString("countdownSuccess")
+            x: parent.width / 2 - paintedWidth / 2
+//            anchors.horizontalCenter: parent.horizontalCenter
+            text: "" + root.successObj.message
             font.pointSize: properties.fontSizes.large
             wrapMode: Text.Wrap
         }
 
         Image {
+            id: imageSuccess
             anchors.horizontalCenter: parent.horizontalCenter
             width: root.width * .50
-            source: properties.paths.iconPath + stringManager.getRandomImage("successImage")
+            source: properties.paths.imagePath + root.successObj.img
             fillMode: Image.PreserveAspectFit
         }
     }
